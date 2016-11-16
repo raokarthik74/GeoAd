@@ -1,0 +1,539 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		256259A91DDC5C070096154F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 256259A81DDC5C070096154F /* main.m */; };
+		256259AC1DDC5C070096154F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256259AB1DDC5C070096154F /* AppDelegate.m */; };
+		256259AF1DDC5C070096154F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 256259AE1DDC5C070096154F /* ViewController.m */; };
+		256259B21DDC5C070096154F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256259B01DDC5C070096154F /* Main.storyboard */; };
+		256259B41DDC5C070096154F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 256259B31DDC5C070096154F /* Assets.xcassets */; };
+		256259B71DDC5C070096154F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256259B51DDC5C070096154F /* LaunchScreen.storyboard */; };
+		256259C21DDC5C070096154F /* GeoAdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 256259C11DDC5C070096154F /* GeoAdTests.m */; };
+		256259CD1DDC5C070096154F /* GeoAdUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 256259CC1DDC5C070096154F /* GeoAdUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		256259BE1DDC5C070096154F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2562599C1DDC5C070096154F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 256259A31DDC5C070096154F;
+			remoteInfo = GeoAd;
+		};
+		256259C91DDC5C070096154F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2562599C1DDC5C070096154F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 256259A31DDC5C070096154F;
+			remoteInfo = GeoAd;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		256259A41DDC5C070096154F /* GeoAd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoAd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		256259A81DDC5C070096154F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		256259AA1DDC5C070096154F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		256259AB1DDC5C070096154F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		256259AD1DDC5C070096154F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		256259AE1DDC5C070096154F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		256259B11DDC5C070096154F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		256259B31DDC5C070096154F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		256259B61DDC5C070096154F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		256259B81DDC5C070096154F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		256259BD1DDC5C070096154F /* GeoAdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoAdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		256259C11DDC5C070096154F /* GeoAdTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoAdTests.m; sourceTree = "<group>"; };
+		256259C31DDC5C070096154F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		256259C81DDC5C070096154F /* GeoAdUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoAdUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		256259CC1DDC5C070096154F /* GeoAdUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoAdUITests.m; sourceTree = "<group>"; };
+		256259CE1DDC5C070096154F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		256259A11DDC5C070096154F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		256259BA1DDC5C070096154F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		256259C51DDC5C070096154F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2562599B1DDC5C070096154F = {
+			isa = PBXGroup;
+			children = (
+				256259A61DDC5C070096154F /* GeoAd */,
+				256259C01DDC5C070096154F /* GeoAdTests */,
+				256259CB1DDC5C070096154F /* GeoAdUITests */,
+				256259A51DDC5C070096154F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		256259A51DDC5C070096154F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				256259A41DDC5C070096154F /* GeoAd.app */,
+				256259BD1DDC5C070096154F /* GeoAdTests.xctest */,
+				256259C81DDC5C070096154F /* GeoAdUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		256259A61DDC5C070096154F /* GeoAd */ = {
+			isa = PBXGroup;
+			children = (
+				256259AA1DDC5C070096154F /* AppDelegate.h */,
+				256259AB1DDC5C070096154F /* AppDelegate.m */,
+				256259AD1DDC5C070096154F /* ViewController.h */,
+				256259AE1DDC5C070096154F /* ViewController.m */,
+				256259B01DDC5C070096154F /* Main.storyboard */,
+				256259B31DDC5C070096154F /* Assets.xcassets */,
+				256259B51DDC5C070096154F /* LaunchScreen.storyboard */,
+				256259B81DDC5C070096154F /* Info.plist */,
+				256259A71DDC5C070096154F /* Supporting Files */,
+			);
+			path = GeoAd;
+			sourceTree = "<group>";
+		};
+		256259A71DDC5C070096154F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				256259A81DDC5C070096154F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		256259C01DDC5C070096154F /* GeoAdTests */ = {
+			isa = PBXGroup;
+			children = (
+				256259C11DDC5C070096154F /* GeoAdTests.m */,
+				256259C31DDC5C070096154F /* Info.plist */,
+			);
+			path = GeoAdTests;
+			sourceTree = "<group>";
+		};
+		256259CB1DDC5C070096154F /* GeoAdUITests */ = {
+			isa = PBXGroup;
+			children = (
+				256259CC1DDC5C070096154F /* GeoAdUITests.m */,
+				256259CE1DDC5C070096154F /* Info.plist */,
+			);
+			path = GeoAdUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		256259A31DDC5C070096154F /* GeoAd */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 256259D11DDC5C070096154F /* Build configuration list for PBXNativeTarget "GeoAd" */;
+			buildPhases = (
+				256259A01DDC5C070096154F /* Sources */,
+				256259A11DDC5C070096154F /* Frameworks */,
+				256259A21DDC5C070096154F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GeoAd;
+			productName = GeoAd;
+			productReference = 256259A41DDC5C070096154F /* GeoAd.app */;
+			productType = "com.apple.product-type.application";
+		};
+		256259BC1DDC5C070096154F /* GeoAdTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 256259D41DDC5C070096154F /* Build configuration list for PBXNativeTarget "GeoAdTests" */;
+			buildPhases = (
+				256259B91DDC5C070096154F /* Sources */,
+				256259BA1DDC5C070096154F /* Frameworks */,
+				256259BB1DDC5C070096154F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				256259BF1DDC5C070096154F /* PBXTargetDependency */,
+			);
+			name = GeoAdTests;
+			productName = GeoAdTests;
+			productReference = 256259BD1DDC5C070096154F /* GeoAdTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		256259C71DDC5C070096154F /* GeoAdUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 256259D71DDC5C070096154F /* Build configuration list for PBXNativeTarget "GeoAdUITests" */;
+			buildPhases = (
+				256259C41DDC5C070096154F /* Sources */,
+				256259C51DDC5C070096154F /* Frameworks */,
+				256259C61DDC5C070096154F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				256259CA1DDC5C070096154F /* PBXTargetDependency */,
+			);
+			name = GeoAdUITests;
+			productName = GeoAdUITests;
+			productReference = 256259C81DDC5C070096154F /* GeoAdUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2562599C1DDC5C070096154F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Karthik Rao";
+				TargetAttributes = {
+					256259A31DDC5C070096154F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9FF7FT82GC;
+						ProvisioningStyle = Automatic;
+					};
+					256259BC1DDC5C070096154F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9FF7FT82GC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 256259A31DDC5C070096154F;
+					};
+					256259C71DDC5C070096154F = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9FF7FT82GC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 256259A31DDC5C070096154F;
+					};
+				};
+			};
+			buildConfigurationList = 2562599F1DDC5C070096154F /* Build configuration list for PBXProject "GeoAd" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2562599B1DDC5C070096154F;
+			productRefGroup = 256259A51DDC5C070096154F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				256259A31DDC5C070096154F /* GeoAd */,
+				256259BC1DDC5C070096154F /* GeoAdTests */,
+				256259C71DDC5C070096154F /* GeoAdUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		256259A21DDC5C070096154F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				256259B71DDC5C070096154F /* LaunchScreen.storyboard in Resources */,
+				256259B41DDC5C070096154F /* Assets.xcassets in Resources */,
+				256259B21DDC5C070096154F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		256259BB1DDC5C070096154F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		256259C61DDC5C070096154F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		256259A01DDC5C070096154F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				256259AF1DDC5C070096154F /* ViewController.m in Sources */,
+				256259AC1DDC5C070096154F /* AppDelegate.m in Sources */,
+				256259A91DDC5C070096154F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		256259B91DDC5C070096154F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				256259C21DDC5C070096154F /* GeoAdTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		256259C41DDC5C070096154F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				256259CD1DDC5C070096154F /* GeoAdUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		256259BF1DDC5C070096154F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 256259A31DDC5C070096154F /* GeoAd */;
+			targetProxy = 256259BE1DDC5C070096154F /* PBXContainerItemProxy */;
+		};
+		256259CA1DDC5C070096154F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 256259A31DDC5C070096154F /* GeoAd */;
+			targetProxy = 256259C91DDC5C070096154F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		256259B01DDC5C070096154F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				256259B11DDC5C070096154F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		256259B51DDC5C070096154F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				256259B61DDC5C070096154F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		256259CF1DDC5C070096154F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		256259D01DDC5C070096154F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		256259D21DDC5C070096154F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9FF7FT82GC;
+				INFOPLIST_FILE = GeoAd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		256259D31DDC5C070096154F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9FF7FT82GC;
+				INFOPLIST_FILE = GeoAd/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAd;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		256259D51DDC5C070096154F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9FF7FT82GC;
+				INFOPLIST_FILE = GeoAdTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAdTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoAd.app/GeoAd";
+			};
+			name = Debug;
+		};
+		256259D61DDC5C070096154F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 9FF7FT82GC;
+				INFOPLIST_FILE = GeoAdTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAdTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoAd.app/GeoAd";
+			};
+			name = Release;
+		};
+		256259D81DDC5C070096154F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9FF7FT82GC;
+				INFOPLIST_FILE = GeoAdUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAdUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GeoAd;
+			};
+			name = Debug;
+		};
+		256259D91DDC5C070096154F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 9FF7FT82GC;
+				INFOPLIST_FILE = GeoAdUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAdUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GeoAd;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2562599F1DDC5C070096154F /* Build configuration list for PBXProject "GeoAd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				256259CF1DDC5C070096154F /* Debug */,
+				256259D01DDC5C070096154F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		256259D11DDC5C070096154F /* Build configuration list for PBXNativeTarget "GeoAd" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				256259D21DDC5C070096154F /* Debug */,
+				256259D31DDC5C070096154F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		256259D41DDC5C070096154F /* Build configuration list for PBXNativeTarget "GeoAdTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				256259D51DDC5C070096154F /* Debug */,
+				256259D61DDC5C070096154F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		256259D71DDC5C070096154F /* Build configuration list for PBXNativeTarget "GeoAdUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				256259D81DDC5C070096154F /* Debug */,
+				256259D91DDC5C070096154F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2562599C1DDC5C070096154F /* Project object */;
+}
