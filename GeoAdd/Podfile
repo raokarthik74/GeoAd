@@ -1,0 +1,8 @@
+source 'https://github.com/CocoaPods/Specs.git'
+  target 'GeoAdd' do
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod "youtube-ios-player-helper"
+ end
+
+ 
