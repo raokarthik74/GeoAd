@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PreviewTableViewCell.h"
+#import "TabBarController.h"
 
 @interface PreviewAdViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 

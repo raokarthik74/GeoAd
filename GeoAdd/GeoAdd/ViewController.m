@@ -12,65 +12,30 @@
 
 @property NSMutableArray* polygonArray;
 @property int tapCount;
-
+@property int longcount;
+@property CLLocationManager *locationManager;
+@property CLGeocoder *geoCoder;
+@property CLPlacemark *placeMark;
+@property CLLocation* currentLocation;
+@property GMSCameraPosition *camera;
+@property NSMutableString *locationString;
+@property NSString *finalLocation;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self locationCollector];
     self.polygonArray = [[NSMutableArray alloc]init];
     // Do any additional setup after loading the view, typically from a nib.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:34.02167
-                                                            longitude:-118.28406
-                                                                 zoom:18];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView.myLocationEnabled = YES;
-    self.view = mapView;
-    //add view on top of existing map to draw polygon
-    mapView.delegate = self;
-    // Creates a marker in the center of the map.
-//    GMSMarker *marker = [[GMSMarker alloc] init];
-//    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-//    marker.title = @"Sydney";
-//    marker.snippet = @"Australia";
-//    marker.map = mapView;
-    [self buildad];
 }
 
 - (void)mapView:(GMSMapView *)mapView
 didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
-    self.tapCount++;
-    CLLocationCoordinate2D position = coordinate;
-    if (self.tapCount >5) {
-        GMSMutablePath *rect = [GMSMutablePath path];
-        [rect addCoordinate:[[self.polygonArray objectAtIndex:0]coordinate]];
-        [rect addCoordinate:[[self.polygonArray objectAtIndex:1]coordinate]];
-        [rect addCoordinate:[[self.polygonArray objectAtIndex:2]coordinate]];
-        [rect addCoordinate:[[self.polygonArray objectAtIndex:3]coordinate]];
-        [rect addCoordinate:[[self.polygonArray objectAtIndex:4]coordinate]];
-        // Create the polygon, and assign it to the map.
-        GMSPolygon *polygon = [GMSPolygon polygonWithPath:rect];
-        polygon.fillColor = [UIColor colorWithRed:0.25 green:0 blue:0 alpha:0.05];
-        polygon.strokeColor = [UIColor blackColor];
-        polygon.strokeWidth = 2;
-        polygon.map = mapView;
-        if(self.tapCount>6){
-            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Success"
-                                                                           message:@"Your ad was posted successfully"
-                                                                    preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {
-                                                                      [self dismissViewControllerAnimated:YES completion:nil];
-                                                                  }];
-            
-            [alert addAction:defaultAction];
-            [self presentViewController:alert animated:YES completion:nil];
-        }
-        
-    }
-    else{
+    if (self.longcount<1) {
+        self.tapCount++;
+        CLLocationCoordinate2D position = coordinate;
         GMSMarker *marker = [GMSMarker markerWithPosition:position];
         marker.title = @"Hello World";
         marker.map = mapView;
@@ -80,8 +45,80 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
     }
 }
 
+- (void) mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate{
+        self.longcount++;
+    if(self.longcount<2){
+        self.locationString = [[NSMutableString alloc]init];
+        [self.locationString appendString:@"("];
+        GMSMutablePath *rect = [GMSMutablePath path];
+        for (int i=0; i<self.polygonArray.count; i++) {
+            [rect addCoordinate:[[self.polygonArray objectAtIndex:i]coordinate]];
+            [self.locationString appendString:@"("];
+            [self.locationString appendString:[NSString stringWithFormat:@"%f", coordinate.longitude]];
+            [self.locationString appendString:@","];
+            [self.locationString appendString:[NSString stringWithFormat:@"%f", coordinate.latitude]];
+            [self.locationString appendString:@"),"];
+        }
+        [self.locationString deleteCharactersInRange:NSMakeRange([self.locationString length]-1, 1)];
+        [self.locationString appendString:@")"];
+        
+        self.finalLocation = self.locationString;
+        NSLog(@"location string %@", self.finalLocation);
+        GMSPolygon *polygon = [GMSPolygon polygonWithPath:rect];
+        polygon.fillColor = [UIColor colorWithRed:0.25 green:0 blue:0 alpha:0.05];
+        polygon.strokeColor = [UIColor blackColor];
+        polygon.strokeWidth = 2;
+        polygon.map = mapView;
+    }
+        else{
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Success"
+                                                                           message:@"Your ad was posted successfully"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {
+                                                                      [self buildad];
+                                                                      [self dismissViewControllerAnimated:YES completion:nil];
+                                                                  }];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+}
+
+-(void)locationCollector {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startMonitoringSignificantLocationChanges];
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    self.currentLocation = [locations lastObject];
+    NSLog(@"last latitude %f", self.currentLocation.coordinate.latitude);
+    NSLog(@"last longitude %f", self.currentLocation.coordinate.longitude);
+    self.camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
+                                              longitude:self.currentLocation.coordinate.longitude
+                                                   zoom:18];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:self.camera];
+    self.view = mapView;
+    mapView.delegate = self;
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Steps"
+                                                                   message:@"Tap clockwise or anti-clockwise on the map. Each Tap will generate a marker. When you are done marking coordinates, Long tap anywhere on the map. This will generate a fence. If you are satisfied with the fence, again Long tap anywhere, to complete ad build"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    [self.locationManager stopUpdatingLocation];
+}
+
 -(void)buildad{
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:@"Club Havana1",@"name", @"USA", @"country",@"10000", @"budget", @"2", @"personId",@"video", @"type", @"https://www.youtube.com/watch?v=w7IWLZcVU64", @"videourl", @"https://en.wikipedia.org/wiki/Casablanca_(film)", @"clickurl", @"((0,0),(0,10),(10, 10),(0, 0))",@"fence",nil];
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:self.adName,@"name", self.country, @"country",self.budget, @"budget", self.personId, @"personId",@"video", @"type", self.youtubeId, @"videourl",self.clickUrl, @"clickurl", self.locationString,@"fence",nil];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );

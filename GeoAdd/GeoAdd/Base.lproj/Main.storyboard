@@ -313,7 +313,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Advertising" translatesAutoresizingMaskIntoConstraints="NO" id="T7i-Vl-yXe">
                                                 <rect key="frame" x="8" y="29" width="30" height="30"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBd-6x-Yfh">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBd-6x-Yfh">
                                                 <rect key="frame" x="115" y="387" width="100" height="100"/>
                                                 <state key="normal" image="Thumb Up"/>
                                                 <connections>

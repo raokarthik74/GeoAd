@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
 
-@interface ViewController : UIViewController <GMSMapViewDelegate>
+@interface ViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic,strong) NSString *adName;
 @property (nonatomic,strong) NSString *country;

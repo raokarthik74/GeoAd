@@ -114,6 +114,7 @@
         TabBarController *controller = (TabBarController *)segue.destinationViewController;
         controller.personId = self.personId;
         controller.country = self.loc;
+        controller.personName = self.userName;
     }
 }
 

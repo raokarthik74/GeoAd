@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @import GoogleMaps;
+#import "TabBarController.h"
 
 @interface PreviewMapViewController : UIViewController
 

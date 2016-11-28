@@ -106,6 +106,10 @@
 }
 
 - (IBAction)doneButtonClicked:(id)sender {
+    self.titleText.text = @"";
+    self.budget.text = @"";
+    self.onClickUrl.text = @"";
+    self.youtubeId.text = @"";
     [self performSegueWithIdentifier:@"fenceSegue" sender:self];
 }
 

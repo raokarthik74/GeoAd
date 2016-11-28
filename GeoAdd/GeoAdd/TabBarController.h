@@ -11,6 +11,7 @@
 @interface TabBarController : UITabBarController
 
 @property (nonatomic,strong) NSString *personId;
+@property (nonatomic,strong) NSString *personName;
 @property (nonatomic,strong) NSString *country;
 
 @end
