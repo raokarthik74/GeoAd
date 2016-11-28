@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		250067B91DDD14DF0057AEA1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 250067B81DDD14DF0057AEA1 /* WebViewController.m */; };
 		2594FDD71DDCD004008D676D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594FDD61DDCD004008D676D /* main.m */; };
 		2594FDDA1DDCD004008D676D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594FDD91DDCD004008D676D /* AppDelegate.m */; };
 		2594FDDD1DDCD004008D676D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594FDDC1DDCD004008D676D /* ViewController.m */; };
@@ -15,6 +16,14 @@
 		2594FDE51DDCD004008D676D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2594FDE31DDCD004008D676D /* LaunchScreen.storyboard */; };
 		2594FDF01DDCD005008D676D /* GeoAddTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594FDEF1DDCD005008D676D /* GeoAddTests.m */; };
 		2594FDFB1DDCD005008D676D /* GeoAddUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594FDFA1DDCD005008D676D /* GeoAddUITests.m */; };
+		2594FE0A1DDCD2F2008D676D /* SimulateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594FE091DDCD2F2008D676D /* SimulateViewController.m */; };
+		2594FE0D1DDCD4C5008D676D /* AddDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2594FE0C1DDCD4C5008D676D /* AddDisplayViewController.m */; };
+		25B1C5171DEB7D8A00E8D72D /* PreviewAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B1C5161DEB7D8A00E8D72D /* PreviewAdViewController.m */; };
+		25B1C5231DEB7E8C00E8D72D /* PreviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B1C5211DEB7E8C00E8D72D /* PreviewTableViewCell.m */; };
+		25B1C5241DEB7E8C00E8D72D /* PreviewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25B1C5221DEB7E8C00E8D72D /* PreviewTableViewCell.xib */; };
+		25B1C5271DEB919B00E8D72D /* PreviewMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B1C5261DEB919B00E8D72D /* PreviewMapViewController.m */; };
+		25B1C52C1DEB9D3600E8D72D /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 25B1C52B1DEB9D3600E8D72D /* video.mov */; };
+		25B1C56E1DEBBAB700E8D72D /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B1C56D1DEBBAB700E8D72D /* FBLoginViewController.m */; };
 		E7F63866E18ED78EEF1A45F1 /* libPods-GeoAdd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 006672D1A299D293A6EFC826 /* libPods-GeoAdd.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		006672D1A299D293A6EFC826 /* libPods-GeoAdd.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GeoAdd.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		250067B71DDD14DF0057AEA1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		250067B81DDD14DF0057AEA1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		2594FDD21DDCD004008D676D /* GeoAdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoAdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2594FDD61DDCD004008D676D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2594FDD81DDCD004008D676D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +64,20 @@
 		2594FDF61DDCD005008D676D /* GeoAddUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoAddUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2594FDFA1DDCD005008D676D /* GeoAddUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeoAddUITests.m; sourceTree = "<group>"; };
 		2594FDFC1DDCD005008D676D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2594FE081DDCD2F2008D676D /* SimulateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulateViewController.h; sourceTree = "<group>"; };
+		2594FE091DDCD2F2008D676D /* SimulateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulateViewController.m; sourceTree = "<group>"; };
+		2594FE0B1DDCD4C5008D676D /* AddDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDisplayViewController.h; sourceTree = "<group>"; };
+		2594FE0C1DDCD4C5008D676D /* AddDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDisplayViewController.m; sourceTree = "<group>"; };
+		25B1C5151DEB7D8A00E8D72D /* PreviewAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewAdViewController.h; sourceTree = "<group>"; };
+		25B1C5161DEB7D8A00E8D72D /* PreviewAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewAdViewController.m; sourceTree = "<group>"; };
+		25B1C5201DEB7E8C00E8D72D /* PreviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewTableViewCell.h; sourceTree = "<group>"; };
+		25B1C5211DEB7E8C00E8D72D /* PreviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewTableViewCell.m; sourceTree = "<group>"; };
+		25B1C5221DEB7E8C00E8D72D /* PreviewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewTableViewCell.xib; sourceTree = "<group>"; };
+		25B1C5251DEB919B00E8D72D /* PreviewMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewMapViewController.h; sourceTree = "<group>"; };
+		25B1C5261DEB919B00E8D72D /* PreviewMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewMapViewController.m; sourceTree = "<group>"; };
+		25B1C52B1DEB9D3600E8D72D /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
+		25B1C56C1DEBBAB700E8D72D /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
+		25B1C56D1DEBBAB700E8D72D /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
 		9B6380C88CCF7F315517FA0D /* Pods-GeoAdd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAdd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAdd/Pods-GeoAdd.debug.xcconfig"; sourceTree = "<group>"; };
 		EF15021520179DC3F68B38FF /* Pods-GeoAdd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAdd.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAdd/Pods-GeoAdd.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,11 +145,27 @@
 				2594FDD91DDCD004008D676D /* AppDelegate.m */,
 				2594FDDB1DDCD004008D676D /* ViewController.h */,
 				2594FDDC1DDCD004008D676D /* ViewController.m */,
+				25B1C5251DEB919B00E8D72D /* PreviewMapViewController.h */,
+				25B1C5261DEB919B00E8D72D /* PreviewMapViewController.m */,
 				2594FDDE1DDCD004008D676D /* Main.storyboard */,
+				25B1C56C1DEBBAB700E8D72D /* FBLoginViewController.h */,
+				25B1C56D1DEBBAB700E8D72D /* FBLoginViewController.m */,
+				25B1C5151DEB7D8A00E8D72D /* PreviewAdViewController.h */,
+				25B1C5161DEB7D8A00E8D72D /* PreviewAdViewController.m */,
+				250067B71DDD14DF0057AEA1 /* WebViewController.h */,
+				250067B81DDD14DF0057AEA1 /* WebViewController.m */,
+				2594FE081DDCD2F2008D676D /* SimulateViewController.h */,
+				2594FE091DDCD2F2008D676D /* SimulateViewController.m */,
+				2594FE0B1DDCD4C5008D676D /* AddDisplayViewController.h */,
+				2594FE0C1DDCD4C5008D676D /* AddDisplayViewController.m */,
 				2594FDE11DDCD004008D676D /* Assets.xcassets */,
 				2594FDE31DDCD004008D676D /* LaunchScreen.storyboard */,
 				2594FDE61DDCD004008D676D /* Info.plist */,
 				2594FDD51DDCD004008D676D /* Supporting Files */,
+				25B1C5201DEB7E8C00E8D72D /* PreviewTableViewCell.h */,
+				25B1C5211DEB7E8C00E8D72D /* PreviewTableViewCell.m */,
+				25B1C5221DEB7E8C00E8D72D /* PreviewTableViewCell.xib */,
+				25B1C52B1DEB9D3600E8D72D /* video.mov */,
 			);
 			path = GeoAdd;
 			sourceTree = "<group>";
@@ -278,6 +319,8 @@
 			files = (
 				2594FDE51DDCD004008D676D /* LaunchScreen.storyboard in Resources */,
 				2594FDE21DDCD004008D676D /* Assets.xcassets in Resources */,
+				25B1C5241DEB7E8C00E8D72D /* PreviewTableViewCell.xib in Resources */,
+				25B1C52C1DEB9D3600E8D72D /* video.mov in Resources */,
 				2594FDE01DDCD004008D676D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,9 +394,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2594FE0D1DDCD4C5008D676D /* AddDisplayViewController.m in Sources */,
+				250067B91DDD14DF0057AEA1 /* WebViewController.m in Sources */,
 				2594FDDD1DDCD004008D676D /* ViewController.m in Sources */,
 				2594FDDA1DDCD004008D676D /* AppDelegate.m in Sources */,
+				25B1C56E1DEBBAB700E8D72D /* FBLoginViewController.m in Sources */,
+				25B1C5171DEB7D8A00E8D72D /* PreviewAdViewController.m in Sources */,
+				2594FE0A1DDCD2F2008D676D /* SimulateViewController.m in Sources */,
+				25B1C5231DEB7E8C00E8D72D /* PreviewTableViewCell.m in Sources */,
 				2594FDD71DDCD004008D676D /* main.m in Sources */,
+				25B1C5271DEB919B00E8D72D /* PreviewMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +555,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9FF7FT82GC;
 				INFOPLIST_FILE = GeoAdd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAdd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,6 +569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9FF7FT82GC;
 				INFOPLIST_FILE = GeoAdd/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.karthikravindrarao.GeoAdd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -593,6 +645,7 @@
 				2594FE011DDCD005008D676D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2594FE021DDCD005008D676D /* Build configuration list for PBXNativeTarget "GeoAddTests" */ = {
 			isa = XCConfigurationList;
@@ -601,6 +654,7 @@
 				2594FE041DDCD005008D676D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2594FE051DDCD005008D676D /* Build configuration list for PBXNativeTarget "GeoAddUITests" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +663,7 @@
 				2594FE071DDCD005008D676D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

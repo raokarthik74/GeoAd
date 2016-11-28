@@ -46,5 +46,44 @@
         <string>googlechromes</string>
         <string>comgooglemaps</string>
     </array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/ad/buildad</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                <false/>
+            </dict>
+        </dict>
+    </dict>
+    <key>NSLocationUsageDescription</key>
+    <string>Need location access</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app requires location access</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>fb373839906296720</string>
+            </array>
+        </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>373839906296720</string>
+    <key>FacebookDisplayName</key>
+    <string>GeoAdd</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>fbapi</string>
+        <string>fb-messenger-api</string>
+        <string>fbauth2</string>
+        <string>fbshareextension</string>
+    </array>
 </dict>
 </plist>

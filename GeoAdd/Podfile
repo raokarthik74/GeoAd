@@ -3,6 +3,9 @@ source 'https://github.com/CocoaPods/Specs.git'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod "youtube-ios-player-helper"
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
  end
 
  
