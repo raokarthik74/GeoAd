@@ -11,6 +11,13 @@
 
 @interface ViewController : UIViewController <GMSMapViewDelegate>
 
+@property (nonatomic,strong) NSString *adName;
+@property (nonatomic,strong) NSString *country;
+@property (nonatomic,strong) NSString *budget;
+@property (nonatomic,strong) NSString *personId;
+@property (nonatomic,strong) NSString *youtubeId;
+@property (nonatomic,strong) NSString *clickUrl;
+
 
 @end
 

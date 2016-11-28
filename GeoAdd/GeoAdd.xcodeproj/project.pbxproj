@@ -24,6 +24,8 @@
 		25B1C5271DEB919B00E8D72D /* PreviewMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B1C5261DEB919B00E8D72D /* PreviewMapViewController.m */; };
 		25B1C52C1DEB9D3600E8D72D /* video.mov in Resources */ = {isa = PBXBuildFile; fileRef = 25B1C52B1DEB9D3600E8D72D /* video.mov */; };
 		25B1C56E1DEBBAB700E8D72D /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B1C56D1DEBBAB700E8D72D /* FBLoginViewController.m */; };
+		25EAA0B21DEBF6C6003E14F8 /* NewAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EAA0B11DEBF6C6003E14F8 /* NewAdsViewController.m */; };
+		25EAA0B81DEC1204003E14F8 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EAA0B71DEC1204003E14F8 /* TabBarController.m */; };
 		E7F63866E18ED78EEF1A45F1 /* libPods-GeoAdd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 006672D1A299D293A6EFC826 /* libPods-GeoAdd.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,10 @@
 		25B1C52B1DEB9D3600E8D72D /* video.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = video.mov; sourceTree = "<group>"; };
 		25B1C56C1DEBBAB700E8D72D /* FBLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginViewController.h; sourceTree = "<group>"; };
 		25B1C56D1DEBBAB700E8D72D /* FBLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginViewController.m; sourceTree = "<group>"; };
+		25EAA0B01DEBF6C6003E14F8 /* NewAdsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAdsViewController.h; sourceTree = "<group>"; };
+		25EAA0B11DEBF6C6003E14F8 /* NewAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAdsViewController.m; sourceTree = "<group>"; };
+		25EAA0B61DEC1204003E14F8 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
+		25EAA0B71DEC1204003E14F8 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 		9B6380C88CCF7F315517FA0D /* Pods-GeoAdd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAdd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAdd/Pods-GeoAdd.debug.xcconfig"; sourceTree = "<group>"; };
 		EF15021520179DC3F68B38FF /* Pods-GeoAdd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAdd.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAdd/Pods-GeoAdd.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +164,8 @@
 				2594FE091DDCD2F2008D676D /* SimulateViewController.m */,
 				2594FE0B1DDCD4C5008D676D /* AddDisplayViewController.h */,
 				2594FE0C1DDCD4C5008D676D /* AddDisplayViewController.m */,
+				25EAA0B01DEBF6C6003E14F8 /* NewAdsViewController.h */,
+				25EAA0B11DEBF6C6003E14F8 /* NewAdsViewController.m */,
 				2594FDE11DDCD004008D676D /* Assets.xcassets */,
 				2594FDE31DDCD004008D676D /* LaunchScreen.storyboard */,
 				2594FDE61DDCD004008D676D /* Info.plist */,
@@ -166,6 +174,8 @@
 				25B1C5211DEB7E8C00E8D72D /* PreviewTableViewCell.m */,
 				25B1C5221DEB7E8C00E8D72D /* PreviewTableViewCell.xib */,
 				25B1C52B1DEB9D3600E8D72D /* video.mov */,
+				25EAA0B61DEC1204003E14F8 /* TabBarController.h */,
+				25EAA0B71DEC1204003E14F8 /* TabBarController.m */,
 			);
 			path = GeoAdd;
 			sourceTree = "<group>";
@@ -397,11 +407,13 @@
 				2594FE0D1DDCD4C5008D676D /* AddDisplayViewController.m in Sources */,
 				250067B91DDD14DF0057AEA1 /* WebViewController.m in Sources */,
 				2594FDDD1DDCD004008D676D /* ViewController.m in Sources */,
+				25EAA0B21DEBF6C6003E14F8 /* NewAdsViewController.m in Sources */,
 				2594FDDA1DDCD004008D676D /* AppDelegate.m in Sources */,
 				25B1C56E1DEBBAB700E8D72D /* FBLoginViewController.m in Sources */,
 				25B1C5171DEB7D8A00E8D72D /* PreviewAdViewController.m in Sources */,
 				2594FE0A1DDCD2F2008D676D /* SimulateViewController.m in Sources */,
 				25B1C5231DEB7E8C00E8D72D /* PreviewTableViewCell.m in Sources */,
+				25EAA0B81DEC1204003E14F8 /* TabBarController.m in Sources */,
 				2594FDD71DDCD004008D676D /* main.m in Sources */,
 				25B1C5271DEB919B00E8D72D /* PreviewMapViewController.m in Sources */,
 			);
