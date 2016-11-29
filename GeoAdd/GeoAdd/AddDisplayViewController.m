@@ -56,9 +56,15 @@
                                                                                                          userInfo:nil
                                                                                                           repeats:NO];
                                                    }];
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive
+                                                   handler:^(UIAlertAction * action) {
+                                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                                   }];
+
     [alert addAction:skyline];
     [alert addAction:nn];
     [alert addAction:random];
+    [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
 }
 
