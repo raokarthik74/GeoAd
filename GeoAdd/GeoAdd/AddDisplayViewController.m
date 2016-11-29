@@ -11,6 +11,7 @@
 @interface AddDisplayViewController ()
 
 @property (strong, nonatomic) NSString *addID;
+@property (strong, nonatomic) NSString *queryType;
 
 @end
 
@@ -18,18 +19,47 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if(self.view.hidden){
-        [self.youtubePlayer stopVideo];
-    }
+    self.youtubePlayer.delegate = self;
+    self.view.hidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [self locationAd];
-    NSTimer *myTimer1 = [NSTimer scheduledTimerWithTimeInterval:200
-                                                         target:self
-                                                       selector:@selector(locationAd)
-                                                       userInfo:nil
-                                                        repeats:YES];
+    [self adManager];
+}
+-(void)adManager{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Query Type"
+                                                                   message:@""
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* skyline = [UIAlertAction actionWithTitle:@"Skyline" style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction * action) {
+                                                        self.queryType = @"skyline";
+                                                        NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5
+                                                                                                            target:self
+                                                                                                          selector:@selector(locationAd)
+                                                                                                          userInfo:nil
+                                                                                                           repeats:NO];
+                                                    }];
+    UIAlertAction* nn = [UIAlertAction actionWithTitle:@"NN" style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * action) {
+                                                   self.queryType = @"nn";
+                                                   NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5
+                                                                                                       target:self
+                                                                                                     selector:@selector(locationAd)
+                                                                                                     userInfo:nil
+                                                                                                      repeats:NO];
+                                               }];
+    UIAlertAction* random = [UIAlertAction actionWithTitle:@"Random" style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action) {
+                                                       NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5
+                                                                                                           target:self
+                                                                                                         selector:@selector(locationAd)
+                                                                                                         userInfo:nil
+                                                                                                          repeats:NO];
+                                                   }];
+    [alert addAction:skyline];
+    [alert addAction:nn];
+    [alert addAction:random];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(void)playerViewDidBecomeReady:(YTPlayerView *)playerView{
@@ -43,7 +73,8 @@
 }
 
 -(void)locationAd{
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: @"(-118.28406,34.02167)",@"location",@"skyline",@"type", nil];
+    self.view.hidden = NO;
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: @"(-118.28406,34.02167)",@"location",self.queryType,@"type", nil];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
@@ -125,6 +156,24 @@
                                                     }
                                                 }];
     [dataTask resume];
+}
+
+- (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state {
+    switch (state) {
+        case kYTPlayerStatePlaying:
+            NSLog(@"Started playback");
+            break;
+        case kYTPlayerStatePaused:
+            NSLog(@"Paused playback");
+            [self.youtubePlayer stopVideo];
+            self.view.hidden = YES;
+            NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:10
+                                                                target:self
+                                                              selector:@selector(adManager)
+                                                              userInfo:nil
+                                                               repeats:NO];
+            break;
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @property(strong, nonatomic) NSString *clickurl;
+- (IBAction)dismiss:(id)sender;
 
 @end
