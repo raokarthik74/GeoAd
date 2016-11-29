@@ -26,6 +26,7 @@
 		25B1C56E1DEBBAB700E8D72D /* FBLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B1C56D1DEBBAB700E8D72D /* FBLoginViewController.m */; };
 		25EAA0B21DEBF6C6003E14F8 /* NewAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EAA0B11DEBF6C6003E14F8 /* NewAdsViewController.m */; };
 		25EAA0B81DEC1204003E14F8 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EAA0B71DEC1204003E14F8 /* TabBarController.m */; };
+		25EAA0BE1DED5F94003E14F8 /* ContainerParentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EAA0BD1DED5F94003E14F8 /* ContainerParentViewController.m */; };
 		E7F63866E18ED78EEF1A45F1 /* libPods-GeoAdd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 006672D1A299D293A6EFC826 /* libPods-GeoAdd.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,8 @@
 		25EAA0B11DEBF6C6003E14F8 /* NewAdsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAdsViewController.m; sourceTree = "<group>"; };
 		25EAA0B61DEC1204003E14F8 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		25EAA0B71DEC1204003E14F8 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
+		25EAA0BC1DED5F94003E14F8 /* ContainerParentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerParentViewController.h; sourceTree = "<group>"; };
+		25EAA0BD1DED5F94003E14F8 /* ContainerParentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerParentViewController.m; sourceTree = "<group>"; };
 		9B6380C88CCF7F315517FA0D /* Pods-GeoAdd.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAdd.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAdd/Pods-GeoAdd.debug.xcconfig"; sourceTree = "<group>"; };
 		EF15021520179DC3F68B38FF /* Pods-GeoAdd.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAdd.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAdd/Pods-GeoAdd.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +179,8 @@
 				25B1C52B1DEB9D3600E8D72D /* video.mov */,
 				25EAA0B61DEC1204003E14F8 /* TabBarController.h */,
 				25EAA0B71DEC1204003E14F8 /* TabBarController.m */,
+				25EAA0BC1DED5F94003E14F8 /* ContainerParentViewController.h */,
+				25EAA0BD1DED5F94003E14F8 /* ContainerParentViewController.m */,
 			);
 			path = GeoAdd;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				25EAA0B81DEC1204003E14F8 /* TabBarController.m in Sources */,
 				2594FDD71DDCD004008D676D /* main.m in Sources */,
 				25B1C5271DEB919B00E8D72D /* PreviewMapViewController.m in Sources */,
+				25EAA0BE1DED5F94003E14F8 /* ContainerParentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

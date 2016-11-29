@@ -15,7 +15,6 @@
 - (IBAction)backButtonTapped:(id)sender;
 
 @property (weak, nonatomic) IBOutlet YTPlayerView *youtubePlayer;
-
 @property(strong, nonatomic) NSString *url;
 @property(strong, nonatomic) NSString *clickurl;
 @property(strong, nonatomic) NSString *adname;
@@ -23,6 +22,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *clickbutton;
 
 - (IBAction)clickToView:(id)sender;
-
 
 @end

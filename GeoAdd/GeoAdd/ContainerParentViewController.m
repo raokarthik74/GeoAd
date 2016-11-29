@@ -1,44 +1,27 @@
 //
-//  AddDisplayViewController.m
+//  ContainerParentViewController.m
 //  GeoAdd
 //
-//  Created by Karthik Rao on 11/16/16.
+//  Created by Karthik Rao on 11/28/16.
 //  Copyright © 2016 Karthik Rao. All rights reserved.
 //
 
-#import "AddDisplayViewController.h"
+#import "ContainerParentViewController.h"
 
-@interface AddDisplayViewController ()
+@interface ContainerParentViewController ()
 
-@property (strong, nonatomic) NSString *addID;
+@property(strong, nonatomic) NSString* url;
+@property(strong, nonatomic) NSString* clickurl;
+@property(strong, nonatomic) NSString* adname;
+@property(strong, nonatomic) id adId;
 
 @end
 
-@implementation AddDisplayViewController
+@implementation ContainerParentViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.youtubePlayer.delegate = self;
-    NSDictionary *playerVars = @{
-                                 @"playsinline" : @1,
-                                 @"autoplay" : @1,
-                                 @"showinfo" : @0,
-                                 @"rel" : @0,
-                                 @"modestbranding" : @1,
-                                 };
-    //[self.youtubePlayer loadWithVideoId:self.url playerVars:playerVars];
-   // self.addID = (NSString *)self.adId;
-    
-   // [self.clickbutton setTitle:self.adname forState:UIControlStateNormal];
-    }
-
-- (IBAction)backButtonTapped:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void)playerViewDidBecomeReady:(YTPlayerView *)playerView{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Playback started" object:self];
-    [self.youtubePlayer playVideo];
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,25 +29,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)clickToView:(id)sender {
-    
-    
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: self.addID,@"id", nil];
+-(void)locationAd{
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: @"(-118.28406,34.02167)",@"location",@"skyline",@"type", nil];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
     NSDictionary *headers = @{ @"content-type": @"application/json" };
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/ad/clickad"]
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/ad/getad"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"POST"];
@@ -84,17 +55,23 @@
                                                                                                                    error:NULL];
                                                         NSLog(@"JSON data %@", jsonDataArray);
                                                         NSDictionary *dictObject = [jsonDataArray objectAtIndex:0];
-                                                        NSLog(@"value for country %@", [[dictObject objectForKey:@"amountLeft"] stringValue]);
+                                                        NSLog(@"value for country %@", [dictObject objectForKey:@"videourl"]);
+                                                        self.url = [dictObject objectForKey:@"videourl"];
+                                                        self.clickurl = [dictObject objectForKey:@"clickurl"];
+                                                        self.adname = [dictObject objectForKey:@"name"];
+                                                        NSLog(@"url %@", self.url);
+                                                        self.adId = [dictObject objectForKey:@"id"];
                                                         
                                                     }
                                                 }];
+    NSTimer *myTimer1 = [NSTimer scheduledTimerWithTimeInterval:3
+                                                         target:self
+                                                       selector:@selector(segueToSimulate)
+                                                       userInfo:nil
+                                                        repeats:NO];
+    
     [dataTask resume];
+    
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"webviewsegue"]) {
-        WebViewController *controller = (WebViewController *)segue.destinationViewController;
-        controller.clickurl = self.clickurl;
-    }
-}
 @end
