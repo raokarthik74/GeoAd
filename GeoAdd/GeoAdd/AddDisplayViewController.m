@@ -7,6 +7,8 @@
 //
 
 #import "AddDisplayViewController.h"
+#import <HealthKit/HealthKit.h>
+#import <WatchKit/WatchKit.h>
 
 @interface AddDisplayViewController ()
 
@@ -153,6 +155,23 @@
                                                             [self.youtubePlayer loadWithVideoId:self.url playerVars:playerVars];
                                                             self.addID = (NSString *)self.adId;
                                                             [self.clickbutton setTitle:self.adname forState:UIControlStateNormal];
+                                                            
+                                                            NSMutableArray *samples = [NSMutableArray array];
+                                                            HKQuantityType *heartRateType =
+                                                            [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+                                                            
+                                                            HKQuantity *heartRateForInterval =
+                                                            [HKQuantity quantityWithUnit:[HKUnit unitFromString:@"count/min"]
+                                                                             doubleValue:95.0];
+                                                            
+                                                            HKQuantitySample *heartRateForIntervalSample =
+                                                            [HKQuantitySample quantitySampleWithType:heartRateType
+                                                                                            quantity:heartRateForInterval
+                                                                                           startDate:[NSDate date]
+                                                                                             endDate:[NSDate date]];
+                                                            
+                                                            [samples addObject:heartRateForIntervalSample];
+                                                            NSLog(@"samples %@", samples);
                                                         });
                                                     }
                                                 }];
