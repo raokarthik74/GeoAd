@@ -85,6 +85,13 @@
     cell.clickRate.text = [[dictObject objectForKey:@"clickCount"] stringValue];
     cell.impressionCount.text = [[dictObject objectForKey:@"impressions"] stringValue];
     NSString *mystr= [[dictObject objectForKey:@"ctr"] stringValue];
+    float ctrvalue = [mystr floatValue];
+    if(ctrvalue>3){
+        cell.adTitle.textColor = [UIColor greenColor];
+    }
+    else{
+        cell.adTitle.textColor = [UIColor redColor];
+    }
     cell.ctr.text = mystr;
     return cell;
 }
@@ -98,7 +105,7 @@
         NSDictionary *dictObject = [self.jsonDataArray objectAtIndex:indexPath.row];
         [self.jsonDataArray removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:self.tabCon.personName,@"name",[dictObject objectForKey:@"id"], @"adId", nil];
+        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:self.tabCon.personId,@"personId",[dictObject objectForKey:@"id"], @"adId", nil];
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
         NSDictionary *headers = @{ @"content-type": @"application/json" };

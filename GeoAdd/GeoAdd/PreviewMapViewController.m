@@ -105,7 +105,7 @@
     NSLog(@"last longitude %f", self.currentLocation.coordinate.longitude);
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
                                               longitude:self.currentLocation.coordinate.longitude
-                                                   zoom:16];
+                                                   zoom:15];
     self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     self.view = self.mapView;
     self.mapView.myLocationEnabled = YES;
