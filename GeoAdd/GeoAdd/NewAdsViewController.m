@@ -106,11 +106,11 @@
 }
 
 - (IBAction)doneButtonClicked:(id)sender {
+    [self performSegueWithIdentifier:@"fenceSegue" sender:self];
     self.titleText.text = @"";
     self.budget.text = @"";
     self.onClickUrl.text = @"";
     self.youtubeId.text = @"";
-    [self performSegueWithIdentifier:@"fenceSegue" sender:self];
 }
 
 /*

@@ -54,9 +54,9 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
         for (int i=0; i<self.polygonArray.count; i++) {
             [rect addCoordinate:[[self.polygonArray objectAtIndex:i]coordinate]];
             [self.locationString appendString:@"("];
-            [self.locationString appendString:[NSString stringWithFormat:@"%f", coordinate.longitude]];
+            [self.locationString appendString:[NSString stringWithFormat:@"%f", [[self.polygonArray objectAtIndex:i]coordinate].longitude]];
             [self.locationString appendString:@","];
-            [self.locationString appendString:[NSString stringWithFormat:@"%f", coordinate.latitude]];
+            [self.locationString appendString:[NSString stringWithFormat:@"%f", [[self.polygonArray objectAtIndex:i]coordinate].latitude]];
             [self.locationString appendString:@"),"];
         }
         [self.locationString deleteCharactersInRange:NSMakeRange([self.locationString length]-1, 1)];

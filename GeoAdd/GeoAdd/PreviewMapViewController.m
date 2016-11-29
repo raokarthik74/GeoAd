@@ -11,6 +11,11 @@
 @interface PreviewMapViewController ()
 
 @property NSArray *jsonDataArray;
+@property GMSMapView *mapView;
+@property CLLocationManager *locationManager;
+@property CLGeocoder *geoCoder;
+@property CLPlacemark *placeMark;
+@property CLLocation* currentLocation;
 
 @end
 
@@ -18,17 +23,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self getAdForPerson];
 }
 
-- (void)loadAds {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-118.28406
-                                                            longitude:34.02167
-                                                                 zoom:1];
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    self.view = mapView;
+- (void)viewDidAppear:(BOOL)animated{
+    [self locationCollector];
     
+}
+
+
+- (void)loadAds {
     for (int j=0; j<self.jsonDataArray.count; j++) {
         NSDictionary *dictObject = [self.jsonDataArray objectAtIndex:j];
         NSString *fence = [dictObject objectForKey:@"fence"];
@@ -47,7 +50,7 @@
         polygon.fillColor = [UIColor colorWithRed:0.25 green:0 blue:0 alpha:0.05];
         polygon.strokeColor = [UIColor blackColor];
         polygon.strokeWidth = 2;
-        polygon.map = mapView;
+        polygon.map = self.mapView;
     }
 }
 
@@ -85,19 +88,35 @@
     [dataTask resume];
 }
 
+-(void)locationCollector {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startMonitoringSignificantLocationChanges];
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    self.currentLocation = [locations lastObject];
+    NSLog(@"last latitude %f", self.currentLocation.coordinate.latitude);
+    NSLog(@"last longitude %f", self.currentLocation.coordinate.longitude);
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:self.currentLocation.coordinate.latitude
+                                              longitude:self.currentLocation.coordinate.longitude
+                                                   zoom:16];
+    self.mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    self.view = self.mapView;
+    self.mapView.myLocationEnabled = YES;
+    self.mapView.delegate = self;
+    [self.locationManager stopUpdatingLocation];
+    [self getAdForPerson];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

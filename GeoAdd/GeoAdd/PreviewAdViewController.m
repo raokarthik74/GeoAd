@@ -10,15 +10,21 @@
 
 @interface PreviewAdViewController ()
 
-@property NSArray *jsonDataArray;
+@property NSMutableArray *jsonDataArray;
+@property TabBarController *tabCon;
+
 @end
 
 @implementation PreviewAdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getAdForPerson];
+   
     // Do any additional setup after loading the view.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+     [self getAdForPerson];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,8 +33,8 @@
 }
 
 -(void)getAdForPerson{
-    TabBarController *tabCon = (TabBarController*)self.tabBarController;
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:tabCon.personName,@"name",nil];
+    self.tabCon = (TabBarController*)self.tabBarController;
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:self.tabCon.personName,@"name",nil];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
@@ -47,9 +53,9 @@
                                                     } else {
                                                         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
                                                         NSLog(@"%@", httpResponse);
-                                                        self.jsonDataArray = [NSJSONSerialization JSONObjectWithData:data
+                                                        self.jsonDataArray = [[NSJSONSerialization JSONObjectWithData:data
                                                                                                                  options:kNilOptions
-                                                                                                                   error:NULL];
+                                                                                                                   error:NULL]mutableCopy];
                                                         NSLog(@"JSON data %@", self.jsonDataArray);
                                                         dispatch_async(dispatch_get_main_queue(), ^{
                                                             [self.tableView reloadData];
@@ -79,7 +85,6 @@
     cell.clickRate.text = [[dictObject objectForKey:@"clickCount"] stringValue];
     cell.impressionCount.text = [[dictObject objectForKey:@"impressions"] stringValue];
     NSString *mystr= [[dictObject objectForKey:@"ctr"] stringValue];
-   // mystr = [mystr substringToIndex:3];
     cell.ctr.text = mystr;
     return cell;
 }
@@ -90,7 +95,30 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSDictionary *dictObject = [self.jsonDataArray objectAtIndex:indexPath.row];
+        [self.jsonDataArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:self.tabCon.personName,@"name",[dictObject objectForKey:@"id"], @"adId", nil];
+        NSError *error;
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
+        NSDictionary *headers = @{ @"content-type": @"application/json" };
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/ad/deletead"]
+                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                           timeoutInterval:10.0];
+        [request setHTTPMethod:@"POST"];
+        [request setAllHTTPHeaderFields:headers];
+        [request setHTTPBody:jsonData];
+        NSURLSession *session = [NSURLSession sharedSession];
+        NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                    completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                        if (error) {
+                                                            NSLog(@"%@", error);
+                                                        } else {
+                                                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                            NSLog(@"%@", httpResponse);
+                                                        }
+                                                    }];
+        [dataTask resume];
     }
 }
 

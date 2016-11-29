@@ -35,7 +35,6 @@
                                                       selector:@selector(locationAd)
                                                       userInfo:nil
                                                        repeats:YES];
-    
 }
 
 -(void)segueToSimulate{
@@ -125,6 +124,7 @@
     [dataTask resume];
 
 }
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"displayadsegue"]) {
