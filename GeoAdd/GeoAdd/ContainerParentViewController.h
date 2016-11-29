@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddDisplayViewController.h"
 
 @interface ContainerParentViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIView *adChild;
+@property (weak, nonatomic) IBOutlet UIButton *buttonBack;
+- (IBAction)backButton:(id)sender;
 
 @end

@@ -12,7 +12,6 @@
 
 @interface AddDisplayViewController : UIViewController <YTPlayerViewDelegate>
 
-- (IBAction)backButtonTapped:(id)sender;
 
 @property (weak, nonatomic) IBOutlet YTPlayerView *youtubePlayer;
 @property(strong, nonatomic) NSString *url;

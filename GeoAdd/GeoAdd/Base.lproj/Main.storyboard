@@ -48,30 +48,41 @@
                                 </connections>
                             </containerView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-BV-g4O">
-                                <rect key="frame" x="0.0" y="134" width="375" height="350"/>
+                                <rect key="frame" x="16" y="134" width="343" height="350"/>
                                 <connections>
                                     <segue destination="T2Q-Kn-LIN" kind="embed" id="3BW-az-X92"/>
                                 </connections>
                             </containerView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1m-ES-Uur">
+                                <rect key="frame" x="23" y="134" width="39" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="joV-2d-stS"/>
+                                </constraints>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Kgc-k1-HuR" eventType="touchUpInside" id="6nz-jx-T0x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VXh-OB-4Bq" firstAttribute="top" secondItem="7kk-3L-GWt" secondAttribute="bottom" id="C6v-w2-aLW"/>
-                            <constraint firstAttribute="trailing" secondItem="7kk-3L-GWt" secondAttribute="trailing" id="Frk-Jp-HBs"/>
-                            <constraint firstItem="7kk-3L-GWt" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leading" id="GQr-EX-Ia6"/>
-                            <constraint firstItem="xDj-BV-g4O" firstAttribute="top" secondItem="sRD-iD-2sb" secondAttribute="bottom" constant="114" id="IcN-YO-ndq"/>
-                            <constraint firstItem="VXh-OB-4Bq" firstAttribute="top" secondItem="xDj-BV-g4O" secondAttribute="bottom" constant="134" id="Udu-qE-aZj"/>
-                            <constraint firstItem="xDj-BV-g4O" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leading" id="UpJ-3H-vjp"/>
-                            <constraint firstItem="7kk-3L-GWt" firstAttribute="top" secondItem="d5O-wV-Vdi" secondAttribute="top" id="VQe-Id-EhT"/>
-                            <constraint firstItem="7kk-3L-GWt" firstAttribute="centerX" secondItem="d5O-wV-Vdi" secondAttribute="centerX" id="aCU-fY-b3F"/>
-                            <constraint firstAttribute="trailing" secondItem="xDj-BV-g4O" secondAttribute="trailing" id="aS7-LI-IYB"/>
-                            <constraint firstItem="xDj-BV-g4O" firstAttribute="centerX" secondItem="d5O-wV-Vdi" secondAttribute="centerX" id="tBE-79-1Cc"/>
+                            <constraint firstItem="VXh-OB-4Bq" firstAttribute="top" secondItem="7kk-3L-GWt" secondAttribute="bottom" id="9nq-yQ-AM4"/>
+                            <constraint firstItem="xDj-BV-g4O" firstAttribute="trailing" secondItem="d5O-wV-Vdi" secondAttribute="trailingMargin" id="BQJ-Vx-T5S"/>
+                            <constraint firstItem="e1m-ES-Uur" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leadingMargin" constant="7" id="Fdh-oq-o8w"/>
+                            <constraint firstAttribute="trailing" secondItem="7kk-3L-GWt" secondAttribute="trailing" id="gfc-zp-DqX"/>
+                            <constraint firstItem="7kk-3L-GWt" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leading" id="iIH-sH-Hfw"/>
+                            <constraint firstItem="xDj-BV-g4O" firstAttribute="top" secondItem="sRD-iD-2sb" secondAttribute="bottom" constant="114" id="m2M-N3-ezl"/>
+                            <constraint firstItem="VXh-OB-4Bq" firstAttribute="top" secondItem="xDj-BV-g4O" secondAttribute="bottom" constant="134" id="okG-rK-wj1"/>
+                            <constraint firstItem="7kk-3L-GWt" firstAttribute="top" secondItem="d5O-wV-Vdi" secondAttribute="top" id="rdF-P6-PO9"/>
+                            <constraint firstItem="e1m-ES-Uur" firstAttribute="top" secondItem="sRD-iD-2sb" secondAttribute="bottom" constant="114" id="ul2-PO-NvN"/>
+                            <constraint firstItem="xDj-BV-g4O" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leadingMargin" id="xBD-im-U6V"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulate" image="Ski Simulator Filled" id="CZW-g9-XqB"/>
                     <navigationItem key="navigationItem" id="SaU-yz-oNf"/>
                     <connections>
                         <outlet property="adChild" destination="xDj-BV-g4O" id="WDd-fu-Xhn"/>
+                        <outlet property="buttonBack" destination="e1m-ES-Uur" id="JXj-Ap-5e0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eR9-2f-zbN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,11 +156,11 @@
                         <viewControllerLayoutGuide type="bottom" id="d8c-iK-DBM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="bRd-M5-itj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dik-44-ljZ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="350"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -407,25 +418,22 @@
             <objects>
                 <viewController id="T2Q-Kn-LIN" customClass="AddDisplayViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QxD-L5-9Nc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="350"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGG-13-VnH">
-                                <rect key="frame" x="36" y="-1" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="T2Q-Kn-LIN" eventType="touchUpInside" id="mBA-Mv-Z7j"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4pt-3D-HCe" customClass="YTPlayerView">
-                                <rect key="frame" x="16" y="37" width="375" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pt-3D-HCe" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="31" width="343" height="283"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="283" id="8A8-tN-54m"/>
+                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-Nh-E73">
-                                <rect key="frame" x="159" y="322" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-Nh-E73">
+                                <rect key="frame" x="16" y="320" width="311" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="311" id="SRT-7R-uOs"/>
+                                    <constraint firstAttribute="height" constant="30" id="mLg-eS-QUF"/>
+                                </constraints>
                                 <state key="normal" title="Click to View"/>
                                 <connections>
                                     <action selector="clickToView:" destination="T2Q-Kn-LIN" eventType="touchUpInside" id="dNP-oa-bFK"/>
@@ -434,6 +442,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QXC-Nh-E73" firstAttribute="leading" secondItem="QxD-L5-9Nc" secondAttribute="leadingMargin" id="FTv-O7-rzp"/>
+                            <constraint firstItem="4pt-3D-HCe" firstAttribute="centerX" secondItem="QxD-L5-9Nc" secondAttribute="centerX" id="Hr6-tC-Qpc"/>
+                            <constraint firstItem="4pt-3D-HCe" firstAttribute="top" secondItem="QxD-L5-9Nc" secondAttribute="top" constant="31" id="JmI-au-fnw"/>
+                            <constraint firstAttribute="trailing" secondItem="4pt-3D-HCe" secondAttribute="trailing" id="TlU-Iq-V8S"/>
+                            <constraint firstItem="4pt-3D-HCe" firstAttribute="leading" secondItem="QxD-L5-9Nc" secondAttribute="leading" id="cFg-9k-DdC"/>
+                            <constraint firstItem="QXC-Nh-E73" firstAttribute="bottom" secondItem="QxD-L5-9Nc" secondAttribute="bottomMargin" id="n4H-11-Cwh"/>
+                            <constraint firstItem="QXC-Nh-E73" firstAttribute="centerX" secondItem="QxD-L5-9Nc" secondAttribute="centerX" id="qf4-US-IAS"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="clickbutton" destination="QXC-Nh-E73" id="jfR-Ww-mS9"/>
@@ -442,7 +459,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vap-tf-sGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1009" y="1543"/>
+            <point key="canvasLocation" x="-1010.4" y="1542.7286356821589"/>
         </scene>
         <!--Simulate View Controller-->
         <scene sceneID="niY-Tu-WmG">
