@@ -12,6 +12,10 @@
 
 @property (strong, nonatomic) NSString *addID;
 @property (strong, nonatomic) NSString *queryType;
+@property CLLocationManager *locationManager;
+@property CLGeocoder *geoCoder;
+@property CLPlacemark *placeMark;
+@property CLLocation* currentLocation;
 
 @end
 
@@ -35,7 +39,7 @@
                                                         self.queryType = @"skyline";
                                                         NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5
                                                                                                             target:self
-                                                                                                          selector:@selector(locationAd)
+                                                                                                          selector:@selector(locationCollector)
                                                                                                           userInfo:nil
                                                                                                            repeats:NO];
                                                     }];
@@ -44,7 +48,7 @@
                                                    self.queryType = @"nn";
                                                    NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5
                                                                                                        target:self
-                                                                                                     selector:@selector(locationAd)
+                                                                                                     selector:@selector(locationCollector)
                                                                                                      userInfo:nil
                                                                                                       repeats:NO];
                                                }];
@@ -52,7 +56,7 @@
                                                    handler:^(UIAlertAction * action) {
                                                        NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5
                                                                                                            target:self
-                                                                                                         selector:@selector(locationAd)
+                                                                                                         selector:@selector(locationCollector)
                                                                                                          userInfo:nil
                                                                                                           repeats:NO];
                                                    }];
@@ -78,9 +82,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)locationCollector {
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+    [self.locationManager startMonitoringSignificantLocationChanges];
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    self.currentLocation = [locations lastObject];
+    NSLog(@"last latitude %f", self.currentLocation.coordinate.latitude);
+    NSLog(@"last longitude %f", self.currentLocation.coordinate.longitude);
+    [self locationAd];
+    [self.locationManager stopUpdatingLocation];
+}
+
 -(void)locationAd{
     self.view.hidden = NO;
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: @"(-118.28406,34.02167)",@"location",self.queryType,@"type", nil];
+    NSMutableString *loc = [[NSMutableString alloc]init];
+    [loc appendString:@"("];
+    [loc appendString:[NSString stringWithFormat:@"%f", self.currentLocation.coordinate.longitude]];
+    [loc appendString:@","];
+    [loc appendString:[NSString stringWithFormat:@"%f", self.currentLocation.coordinate.latitude]];
+    [loc appendString:@")"];
+    NSString *finalLoc = loc;
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: finalLoc,@"location",self.queryType,@"type", nil];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
@@ -169,7 +199,7 @@
         case kYTPlayerStatePlaying:
             NSLog(@"Started playback");
             break;
-        case kYTPlayerStatePaused:
+        case kYTPlayerStateEnded:
             NSLog(@"Paused playback");
             [self.youtubePlayer stopVideo];
             self.view.hidden = YES;
@@ -186,6 +216,7 @@
     if([segue.identifier isEqualToString:@"webviewsegue"]) {
         WebViewController *controller = (WebViewController *)segue.destinationViewController;
         controller.clickurl = self.clickurl;
+        controller.titleNav = self.adname;
     }
 }
 

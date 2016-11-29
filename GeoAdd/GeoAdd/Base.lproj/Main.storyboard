@@ -47,8 +47,9 @@
                                     <segue destination="Hp2-vj-uia" kind="embed" id="E06-IM-gmv"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-BV-g4O">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-BV-g4O">
                                 <rect key="frame" x="16" y="134" width="343" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="T2Q-Kn-LIN" kind="embed" id="3BW-az-X92"/>
                                 </connections>
@@ -57,13 +58,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VXh-OB-4Bq" firstAttribute="top" secondItem="7kk-3L-GWt" secondAttribute="bottom" id="9nq-yQ-AM4"/>
-                            <constraint firstItem="xDj-BV-g4O" firstAttribute="trailing" secondItem="d5O-wV-Vdi" secondAttribute="trailingMargin" id="BQJ-Vx-T5S"/>
                             <constraint firstAttribute="trailing" secondItem="7kk-3L-GWt" secondAttribute="trailing" id="gfc-zp-DqX"/>
                             <constraint firstItem="7kk-3L-GWt" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leading" id="iIH-sH-Hfw"/>
-                            <constraint firstItem="xDj-BV-g4O" firstAttribute="top" secondItem="sRD-iD-2sb" secondAttribute="bottom" constant="114" id="m2M-N3-ezl"/>
-                            <constraint firstItem="VXh-OB-4Bq" firstAttribute="top" secondItem="xDj-BV-g4O" secondAttribute="bottom" constant="134" id="okG-rK-wj1"/>
                             <constraint firstItem="7kk-3L-GWt" firstAttribute="top" secondItem="d5O-wV-Vdi" secondAttribute="top" id="rdF-P6-PO9"/>
-                            <constraint firstItem="xDj-BV-g4O" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leadingMargin" id="xBD-im-U6V"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Simulate" image="Ski Simulator Filled" id="CZW-g9-XqB"/>
@@ -153,7 +150,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0w-kP-o6d">
                                 <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                 <items>
-                                    <navigationItem id="vlK-HC-rt8">
+                                    <navigationItem title="Title" id="vlK-HC-rt8">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="PZq-bo-ZSe">
                                             <connections>
                                                 <action selector="dismiss:" destination="Oha-IR-4xe" id="3cm-Bx-WMf"/>
@@ -176,6 +173,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navItem" destination="vlK-HC-rt8" id="XsE-zn-0Jw"/>
                         <outlet property="webView" destination="dik-44-ljZ" id="xUa-gS-EXo"/>
                     </connections>
                 </viewController>
@@ -197,7 +195,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="LE6-7Q-v2e" kind="show" identifier="loginSegue" id="ar2-AS-tfj"/>
+                        <segue destination="LE6-7Q-v2e" kind="showDetail" identifier="loginSegue" id="ar2-AS-tfj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xds-T9-Qyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -307,7 +305,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Advertising" translatesAutoresizingMaskIntoConstraints="NO" id="T7i-Vl-yXe">
                                                 <rect key="frame" x="8" y="29" width="30" height="30"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBd-6x-Yfh">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBd-6x-Yfh">
                                                 <rect key="frame" x="115" y="387" width="100" height="100"/>
                                                 <state key="normal" image="Thumb Up"/>
                                                 <connections>

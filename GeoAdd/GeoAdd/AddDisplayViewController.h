@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "YTPlayerView.h"
 #import "WebViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface AddDisplayViewController : UIViewController <YTPlayerViewDelegate>
+@interface AddDisplayViewController : UIViewController <YTPlayerViewDelegate, CLLocationManagerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet YTPlayerView *youtubePlayer;

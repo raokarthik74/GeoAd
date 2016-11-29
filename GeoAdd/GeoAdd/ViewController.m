@@ -106,6 +106,7 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
                                                    zoom:18];
     GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectZero camera:self.camera];
     self.view = mapView;
+    mapView.myLocationEnabled = YES;
     mapView.delegate = self;
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Steps"
                                                                    message:@"Tap clockwise or anti-clockwise on the map. Each Tap will generate a marker. When you are done marking coordinates, Long tap anywhere on the map. This will generate a fence. If you are satisfied with the fence, again Long tap anywhere, to complete ad build"
