@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fOU-H1-cJt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fOU-H1-cJt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,9 +47,11 @@
                                     <segue destination="Hp2-vj-uia" kind="embed" id="E06-IM-gmv"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-BV-g4O">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDj-BV-g4O">
                                 <rect key="frame" x="16" y="134" width="343" height="350"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="350" id="IpQ-vF-23V"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="T2Q-Kn-LIN" kind="embed" id="3BW-az-X92"/>
                                 </connections>
@@ -57,7 +59,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xDj-BV-g4O" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leadingMargin" id="37Z-LA-COB"/>
+                            <constraint firstItem="xDj-BV-g4O" firstAttribute="top" secondItem="sRD-iD-2sb" secondAttribute="bottom" constant="114" id="4gV-3Z-ypV"/>
                             <constraint firstItem="VXh-OB-4Bq" firstAttribute="top" secondItem="7kk-3L-GWt" secondAttribute="bottom" id="9nq-yQ-AM4"/>
+                            <constraint firstItem="xDj-BV-g4O" firstAttribute="centerX" secondItem="d5O-wV-Vdi" secondAttribute="centerX" id="coz-2y-Co0"/>
                             <constraint firstAttribute="trailing" secondItem="7kk-3L-GWt" secondAttribute="trailing" id="gfc-zp-DqX"/>
                             <constraint firstItem="7kk-3L-GWt" firstAttribute="leading" secondItem="d5O-wV-Vdi" secondAttribute="leading" id="iIH-sH-Hfw"/>
                             <constraint firstItem="7kk-3L-GWt" firstAttribute="top" secondItem="d5O-wV-Vdi" secondAttribute="top" id="rdF-P6-PO9"/>
@@ -435,10 +440,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXC-Nh-E73">
                                 <rect key="frame" x="16" y="320" width="311" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="592-hK-3AB"/>
-                                    <constraint firstAttribute="width" constant="311" id="yDP-8R-dXx"/>
-                                </constraints>
                                 <state key="normal" title="Click to View"/>
                                 <connections>
                                     <action selector="clickToView:" destination="T2Q-Kn-LIN" eventType="touchUpInside" id="dNP-oa-bFK"/>
@@ -449,11 +450,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4pt-3D-HCe" firstAttribute="centerX" secondItem="QxD-L5-9Nc" secondAttribute="centerX" id="4u5-KM-yvZ"/>
+                            <constraint firstItem="QXC-Nh-E73" firstAttribute="bottom" secondItem="r13-a9-GYy" secondAttribute="top" id="G1U-GC-RzQ"/>
                             <constraint firstItem="4pt-3D-HCe" firstAttribute="top" secondItem="bvp-UC-bcV" secondAttribute="bottom" id="I7x-Ug-Hfj"/>
-                            <constraint firstItem="QXC-Nh-E73" firstAttribute="top" secondItem="4pt-3D-HCe" secondAttribute="bottom" constant="6" id="MJX-4D-0SY"/>
                             <constraint firstItem="4pt-3D-HCe" firstAttribute="leading" secondItem="QxD-L5-9Nc" secondAttribute="leading" id="MWk-PZ-TQj"/>
                             <constraint firstAttribute="trailing" secondItem="4pt-3D-HCe" secondAttribute="trailing" id="SaZ-Y9-Sn2"/>
-                            <constraint firstItem="QXC-Nh-E73" firstAttribute="leading" secondItem="QxD-L5-9Nc" secondAttribute="leadingMargin" id="g4o-cL-bPz"/>
+                            <constraint firstItem="QXC-Nh-E73" firstAttribute="leading" secondItem="QxD-L5-9Nc" secondAttribute="leadingMargin" id="tVG-8b-iUa"/>
+                            <constraint firstItem="QXC-Nh-E73" firstAttribute="centerX" secondItem="QxD-L5-9Nc" secondAttribute="centerX" id="xJD-Rw-zbJ"/>
                         </constraints>
                     </view>
                     <connections>

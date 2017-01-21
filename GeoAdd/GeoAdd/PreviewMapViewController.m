@@ -34,6 +34,30 @@
 - (void)loadAds {
     for (int j=0; j<self.jsonDataArray.count; j++) {
         NSDictionary *dictObject = [self.jsonDataArray objectAtIndex:j];
+//        NSString *mark = [dictObject objectForKey:@"centroid"];
+//        NSLog(@"mark before %@", mark);
+//        mark = [[mark stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
+//        NSLog(@"mark after %@", mark);
+//        NSArray *markArray = [mark componentsSeparatedByString:@","];
+//        BOOL com = true;
+//        for(int k=0; k<mark.length; k++){
+//            if(com){
+//                if([mark characterAtIndex:k]!=@","){
+//                    
+//                }
+//            }
+//            
+//        }
+//        NSLog(@"mark array is %@", markArray);
+//        CLLocationCoordinate2D coords;
+//        coords.longitude = (CLLocationDegrees)[[markArray objectAtIndex:0] doubleValue];
+//        coords.latitude = (CLLocationDegrees)[[markArray objectAtIndex:1] doubleValue];
+        
+//        CLLocationCoordinate2D position = CLLocationCoordinate2DMake(coords.longitude, coords.latitude);
+//        GMSMarker *london = [GMSMarker markerWithPosition:position];
+//        london.title = [dictObject objectForKey:@"name"];;
+//        london.map = self.mapView;
+        
         NSString *fence = [dictObject objectForKey:@"fence"];
         fence = [[fence stringByReplacingOccurrencesOfString:@"(" withString:@""] stringByReplacingOccurrencesOfString:@")" withString:@""];
         NSLog(@"fence is %@", fence);
@@ -46,6 +70,12 @@
             coord.latitude = (CLLocationDegrees)[[fenceArray objectAtIndex:i+1] doubleValue];
             [rect addCoordinate:coord];
         }
+        
+        CLLocationCoordinate2D position1 = CLLocationCoordinate2DMake((CLLocationDegrees)[[fenceArray objectAtIndex:0] doubleValue], (CLLocationDegrees)[[fenceArray objectAtIndex:1] doubleValue]);
+        GMSMarker *london = [GMSMarker markerWithPosition:position1];
+        london.title = [dictObject objectForKey:@"name"];;
+        london.map = self.mapView;
+        
         GMSPolygon *polygon = [GMSPolygon polygonWithPath:rect];
         polygon.fillColor = [UIColor colorWithRed:0.25 green:0 blue:0 alpha:0.05];
         polygon.strokeColor = [UIColor blackColor];
@@ -61,7 +91,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
     NSDictionary *headers = @{ @"content-type": @"application/json" };
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/person/getpersonads"]
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-user@ec2-35-165-161-51.us-west-2.compute.amazonaws.com:8080/v1/person/getpersonads"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"POST"];

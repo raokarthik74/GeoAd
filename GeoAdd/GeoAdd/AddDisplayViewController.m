@@ -25,7 +25,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.youtubePlayer.delegate = self;
+    HKQuantityType *heartRateType =
+    [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    
+    HKQuantity *heartRateForInterval =
+    [HKQuantity quantityWithUnit:[HKUnit unitFromString:@"count/min"]
+                     doubleValue:250.0];
+    
+    HKQuantitySample *heartRateForIntervalSample =
+    [HKQuantitySample quantitySampleWithType:heartRateType
+                                    quantity:heartRateForInterval
+                                   startDate:[NSDate date]
+                                     endDate:[[NSDate date] dateByAddingTimeInterval:(30)]];
+    NSLog(@"samples before%@", heartRateForIntervalSample);
     self.view.hidden = YES;
 }
 
@@ -33,6 +45,8 @@
     [self adManager];
 }
 -(void)adManager{
+    self.view.hidden = YES;
+    [self.youtubePlayer stopVideo];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Query Type"
                                                                    message:@""
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -56,6 +70,7 @@
                                                }];
     UIAlertAction* random = [UIAlertAction actionWithTitle:@"Random" style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * action) {
+                                                       self.queryType = @"random";
                                                        NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:5
                                                                                                            target:self
                                                                                                          selector:@selector(locationCollector)
@@ -69,7 +84,7 @@
 
     [alert addAction:skyline];
     [alert addAction:nn];
-    [alert addAction:random];
+    //[alert addAction:random];
     [alert addAction:cancel];
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -112,17 +127,21 @@
     [loc appendString:[NSString stringWithFormat:@"%f", self.currentLocation.coordinate.latitude]];
     [loc appendString:@")"];
     NSString *finalLoc = loc;
+    NSLog(@"location %@", finalLoc);
     NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: finalLoc,@"location",self.queryType,@"type", nil];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
     NSDictionary *headers = @{ @"content-type": @"application/json" };
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/ad/getad"]
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-user@ec2-35-165-161-51.us-west-2.compute.amazonaws.com:8080/v1/ad/getad"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"POST"];
     [request setAllHTTPHeaderFields:headers];
     [request setHTTPBody:jsonData];
+    self.youtubePlayer.delegate = self;
+    [self.youtubePlayer loadWithVideoId:@"m3GbQrcyUa0"];
+    [self.youtubePlayer stopVideo];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -143,7 +162,6 @@
                                                         self.adname = [dictObject objectForKey:@"name"];
                                                         NSLog(@"url %@", self.url);
                                                         self.adId = [dictObject objectForKey:@"id"];
-                                                        self.youtubePlayer.delegate = self;
                                                         NSDictionary *playerVars = @{
                                                                                      @"playsinline" : @1,
                                                                                      @"autoplay" : @1,
@@ -151,27 +169,26 @@
                                                                                      @"rel" : @0,
                                                                                      @"modestbranding" : @1,
                                                                                      };
+                                                        
                                                         dispatch_async(dispatch_get_main_queue(), ^{
                                                             [self.youtubePlayer loadWithVideoId:self.url playerVars:playerVars];
                                                             self.addID = (NSString *)self.adId;
                                                             [self.clickbutton setTitle:self.adname forState:UIControlStateNormal];
                                                             
-                                                            NSMutableArray *samples = [NSMutableArray array];
+                                                        
                                                             HKQuantityType *heartRateType =
                                                             [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
                                                             
                                                             HKQuantity *heartRateForInterval =
                                                             [HKQuantity quantityWithUnit:[HKUnit unitFromString:@"count/min"]
-                                                                             doubleValue:95.0];
+                                                                             doubleValue:250.0];
                                                             
                                                             HKQuantitySample *heartRateForIntervalSample =
                                                             [HKQuantitySample quantitySampleWithType:heartRateType
                                                                                             quantity:heartRateForInterval
                                                                                            startDate:[NSDate date]
-                                                                                             endDate:[NSDate date]];
-                                                            
-                                                            [samples addObject:heartRateForIntervalSample];
-                                                            NSLog(@"samples %@", samples);
+                                                                                             endDate:[[NSDate date] dateByAddingTimeInterval:(30)]];
+                                                            NSLog(@"samples after %@", heartRateForIntervalSample);
                                                         });
                                                     }
                                                 }];
@@ -186,7 +203,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
     NSDictionary *headers = @{ @"content-type": @"application/json" };
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/ad/clickad"]
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-user@ec2-35-165-161-51.us-west-2.compute.amazonaws.com:8080/v1/ad/clickad"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"POST"];
@@ -218,17 +235,24 @@
         case kYTPlayerStatePlaying:
             NSLog(@"Started playback");
             break;
-        case kYTPlayerStateEnded:
+        case kYTPlayerStatePaused:
             NSLog(@"Paused playback");
+            break;
+        case kYTPlayerStateEnded:
             [self.youtubePlayer stopVideo];
-            self.view.hidden = YES;
-            NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:10
-                                                                target:self
-                                                              selector:@selector(adManager)
-                                                              userInfo:nil
-                                                               repeats:NO];
+             self.view.hidden = YES;
+            break;
+        default:
             break;
     }
+}
+
+
+
+- (void)tabBarController:(UITabBarController *)tabBarController
+ didSelectViewController:(UIViewController *)viewController
+{
+    NSLog(@"controller title: %@", viewController.title);
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -236,6 +260,7 @@
         WebViewController *controller = (WebViewController *)segue.destinationViewController;
         controller.clickurl = self.clickurl;
         controller.titleNav = self.adname;
+        [self.youtubePlayer stopVideo];
     }
 }
 

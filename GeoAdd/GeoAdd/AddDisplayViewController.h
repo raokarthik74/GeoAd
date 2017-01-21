@@ -10,6 +10,7 @@
 #import "YTPlayerView.h"
 #import "WebViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "TabBarController.h"
 
 @interface AddDisplayViewController : UIViewController <YTPlayerViewDelegate, CLLocationManagerDelegate>
 

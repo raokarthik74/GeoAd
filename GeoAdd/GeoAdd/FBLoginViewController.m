@@ -56,7 +56,7 @@
              NSDictionary *headers = @{ @"content-type": @"application/json" };
              NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: self.userName,@"name",self.loc,@"city", self.age,@"age",nil];
              NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
-             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/person/addperson"]
+             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-user@ec2-35-165-161-51.us-west-2.compute.amazonaws.com:8080/v1/person/addperson"]
                                                                     cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                 timeoutInterval:10.0];
              [request setHTTPMethod:@"POST"];

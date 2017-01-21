@@ -46,6 +46,9 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
 }
 
 - (void) mapView:(GMSMapView *)mapView didLongPressAtCoordinate:(CLLocationCoordinate2D)coordinate{
+    if (self.tapCount<3) {
+        return;
+    }
         self.longcount++;
     if(self.longcount<2){
         self.locationString = [[NSMutableString alloc]init];
@@ -119,12 +122,13 @@ didTapAtCoordinate:(CLLocationCoordinate2D)coordinate{
 }
 
 -(void)buildad{
-    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:self.adName,@"name", self.country, @"country",self.budget, @"budget", self.personId, @"personId",@"video", @"type", self.youtubeId, @"videourl",self.clickUrl, @"clickurl", self.locationString,@"fence",nil];
+    NSLog(@"country %@", self.country);
+    NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys: self.adName,@"name", @"USA", @"country",self.budget, @"budget", self.personId, @"personId",@"video", @"type", self.youtubeId, @"videourl",self.clickUrl, @"clickurl", self.finalLocation,@"fence",nil];
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:&error];
     NSLog(@"jsonData %@",dic );
     NSDictionary *headers = @{ @"content-type": @"application/json" };
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-35-160-50-16.us-west-2.compute.amazonaws.com:8080/v1/ad/buildad"]
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://ec2-user@ec2-35-165-161-51.us-west-2.compute.amazonaws.com:8080/v1/ad/buildad"]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"POST"];
